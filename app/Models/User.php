@@ -30,6 +30,7 @@ class User extends Authenticatable
         'postal_code',
         'role',
         'photo',
+        'is_livestreaming',
     ];
 
     /**
@@ -61,6 +62,7 @@ class User extends Authenticatable
             'postal_code' => 'string',
             'role' => 'string',
             'photo' => 'string',
+            'is_livestreaming' => 'boolean',
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
             'email_verified_at' => 'datetime',

@@ -46,3 +46,6 @@ Route::get('/customer/history', [App\Http\Controllers\Api\OrderController::class
 
 // History order for seller
 Route::get('/seller/history', [App\Http\Controllers\Api\OrderController::class, 'sellerOrderHistory'])->middleware('auth:sanctum');
+
+// Get seller that is currently live streaming
+Route::get('/customer/seller/live-streaming', [App\Http\Controllers\Api\StoreController::class, 'liveStreaming'])->middleware('auth:sanctum');

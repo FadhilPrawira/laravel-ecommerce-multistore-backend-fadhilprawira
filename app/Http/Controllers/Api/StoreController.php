@@ -37,35 +37,16 @@ class StoreController extends Controller
         ])->setStatusCode(200);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    // Get seller that is currently live streaming
+    public function liveStreaming(Request $request)
     {
-        //
-    }
+        // Get the seller that is currently live streaming
+        $stores = User::where('role', 'seller')->where('is_livestreaming', true)->get();
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        return response()->json([
+            'status' => 'success',
+            'message' => 'List of all stores that are currently live streaming',
+            'data' => $stores,
+        ])->setStatusCode(200);
     }
 }
